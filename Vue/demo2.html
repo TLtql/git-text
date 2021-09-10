@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="app">
+      <h1>{{info.name}}</h1>
+      <h1>{{info.password}}</h1>
+      <li v-for="item in info.items">{{item}}</li>
+      <a v-bind:href="info.url">demo1.html</a><br/>
+
+      <button v-on:click="change">change</button>
+
+  </div>
+
+
+  <script>
+    var vue=new Vue({
+        el:"#app",
+        methods:{
+            change:function () {
+                axios.get("data2.json").then(response=>(this.info=response.data))
+            }
+        },
+        data(){
+            return{
+                info:null
+            }
+        },
+        mounted(){
+            axios.get("data1.json").then(response=>(this.info=response.data))
+        }
+    });
+  </script>
+
+</body>
+</html>

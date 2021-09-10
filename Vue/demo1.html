@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="head">
+        <h1 v-if="name=='佐伊'">{{name}}</h1>
+        <h1 v-else-if="name=='田乐'">{{password}}</h1>
+
+        姓名：<input type="text" v-model="name"/> <span>{{name}}</span> <br/>
+        <button v-on:click="change1" >田乐</button>
+        <button v-on:click="change2" >佐伊</button>   <br/><br/>
+
+        <div v-for="item in items">
+            <li>{{item}}</li>
+        </div>  <br/><br/>
+
+        <tem v-for="item in items" v-bind:item="item"></tem>
+
+    </div>
+
+</body>
+    <script type="text/javascript">
+        Vue.component("tem",{
+            props:["item"],
+            template:"<li>{{item}}</li>"
+        });
+        var vue=new Vue({
+            el:"#head",
+            data:{
+                name:"佐伊",
+                password:"zuoyi123",
+                items:["java","web","vue"]
+            },
+            methods: {
+                change1:function() {
+                    this.name = "田乐";
+                },
+                change2:function() {
+                    this.name = "佐伊";
+                }
+            }
+        });
+    </script>
+</html>
