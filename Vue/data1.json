@@ -1,6 +1,7 @@
 {
   "name": "田乐",
   "url": "demo1.html",
+  "gender": "男 ",
   "items": ["java","web","vue"],
   "password": "tinale123"
 }

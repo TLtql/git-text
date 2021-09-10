@@ -1,6 +1,7 @@
 {
   "name": "佐伊",
   "url": "demo1.html",
+  "gender": "女",
   "items": ["spring","SpringMVC","Mybatis"],
   "password": "zuoyi123"
 }
